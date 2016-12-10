@@ -1,6 +1,5 @@
 package edu.nyu.tandon.coding;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -8,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -23,7 +23,7 @@ import static org.junit.runners.Parameterized.Parameter;
 public class VarByteDecoderFlippedTest {
 
     private static InputStream input(byte ... bytes) {
-        return new ByteInputStream(bytes, bytes.length);
+        return new ByteArrayInputStream(bytes);
     }
 
     @Rule
