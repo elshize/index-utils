@@ -9,7 +9,7 @@ import java.util.Iterator;
 /**
  * @author michal.siedlaczek@nyu.edu
  */
-public class ForwardIndexIterator implements Iterator<Document> {
+public class ForwardIndexIterator implements Iterator<Document>, AutoCloseable {
 
     protected InputStream indexInput;
     protected DocumentMetadataIterator documentMetadataIterator;
@@ -40,4 +40,8 @@ public class ForwardIndexIterator implements Iterator<Document> {
         return new Document(metadata, content, decoder);
     }
 
+    @Override
+    public void close() throws Exception {
+        indexInput.close();
+    }
 }
